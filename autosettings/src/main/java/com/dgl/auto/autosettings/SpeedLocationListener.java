@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 
 public class SpeedLocationListener implements LocationListener, GpsStatus.Listener {
     public static final int DEFAULT_MIN_SPEED = 40;
-    public static final int DEFAULT_MAX_SPEED = 300;
+    public static final int DEFAULT_MAX_SPEED = 400;
 
     private static final String LOG_TAG = "SpeedLocationListener";
     private static final int VOLUME_CHANGE_TIMEOUT = 750;

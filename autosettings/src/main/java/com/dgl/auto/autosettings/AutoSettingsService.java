@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -70,6 +71,12 @@ public class AutoSettingsService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(LOG_TAG, "onStartCommand");
+
+        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        if (! wifiManager.isWifiEnabled() ){
+            wifiManager.setWifiEnabled(true);
+        }
+
 
         if (settingManager == null) {
             settingManager = SettingManager.getInstance();
